@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Compound_V_API</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Compound-V.Application\Compound-V.Application.csproj" />
+    <ProjectReference Include="..\Compound-V.Infrastructure\Compound-V.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
