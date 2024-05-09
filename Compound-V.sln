@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compound-V.Application", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compound-V.Infrastructure", "Compound-V.Infrastructure\Compound-V.Infrastructure.csproj", "{4A1A487F-20D3-4A8B-94A1-B046A68A72FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{63F9E7A7-43AC-4BE2-88E3-514702720CB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8DCCF112-F3ED-4AF9-9385-2A3841072106}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BCF3B47D-F707-4975-A88D-3242338A8C79} = {63F9E7A7-43AC-4BE2-88E3-514702720CB6}
+		{5494952E-A830-46D5-9FCC-9B8051015EF5} = {63F9E7A7-43AC-4BE2-88E3-514702720CB6}
+		{EA89796E-9D46-4D30-893B-3AEE3A7E486B} = {63F9E7A7-43AC-4BE2-88E3-514702720CB6}
+		{4A1A487F-20D3-4A8B-94A1-B046A68A72FF} = {63F9E7A7-43AC-4BE2-88E3-514702720CB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FFBF78DF-265B-4D5B-AD07-EBD161988BF5}
