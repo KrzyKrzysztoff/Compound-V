@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Domain.Entities
 {
-    internal class File
+    public class File
     {
+        public Guid Id { get; set; }
+        public string Name { get; set; } = default!;
+        public string? Description { get; set; }
+        public string Path { get; set; } = default!;
     }
 }
