@@ -12,5 +12,6 @@ namespace Compound_V.Domain.Entities
         public string? Description { get; set; }
 
         public User Users { get; set; } = new User();
+        public File? Files { get; set; }
     }
 }

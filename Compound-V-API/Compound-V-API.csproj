@@ -7,4 +7,8 @@
     <RootNamespace>Compound_V_API</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
