@@ -1,4 +1,7 @@
-﻿using Compound_V.Infrastructure.Persistence;
+﻿using Compound_V.Domain.Entities;
+using Compound_V.Infrastructure.Persistence;
+using Compound_V.Infrastructure.Seeders;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +22,13 @@ namespace Compound_V.Infrastructure.Extensions
 
             serviceCollection.AddDbContext<CompoundDbContext>(
                 x => x.UseSqlServer(connectionString));
+
+            serviceCollection.AddIdentityCore<User>()
+                .AddRoles<IdentityRole>()
+                .AddUserManager<UserManager<User>>()
+                .AddEntityFrameworkStores<CompoundDbContext>();
+
+            serviceCollection.AddScoped<ICompoundSeed,  CompoundSeed>();
         }
     }
 }
