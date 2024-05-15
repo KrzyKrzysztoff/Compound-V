@@ -23,10 +23,9 @@ namespace Compound_V.Infrastructure.Extensions
             serviceCollection.AddDbContext<CompoundDbContext>(
                 x => x.UseSqlServer(connectionString));
 
-            serviceCollection.AddIdentityCore<User>()
-                .AddRoles<IdentityRole>()
-                .AddUserManager<UserManager<User>>()
-                .AddEntityFrameworkStores<CompoundDbContext>();
+            serviceCollection.AddIdentityApiEndpoints<User>()
+              .AddRoles<IdentityRole>()
+              .AddEntityFrameworkStores<CompoundDbContext>();
 
             serviceCollection.AddScoped<ICompoundSeed,  CompoundSeed>();
         }
