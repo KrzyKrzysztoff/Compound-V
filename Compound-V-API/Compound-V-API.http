@@ -6,11 +6,30 @@ Accept: application/json
 ###
 
 POST {{Compound_V_API_HostAddress}}/api/identity/register
-Conntent-Type: application/json
+Content-Type: application/json
 
 {
-    "email":"test4@wp.pl",
-    "passowrd":"ASd123#@!"
+    "email": "test@test.com",
+    "password": "Password1!"
 }
 
 ###
+
+POST {{Compound_V_API_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "Password1!"
+}
+
+###
+
+POST {{Compound_V_API_HostAddress}}/api/identity/userRole
+Content-Type: application/json
+
+{
+    "userEmail": "test@test.com",
+    "roleName": "Owner"
+}
+
