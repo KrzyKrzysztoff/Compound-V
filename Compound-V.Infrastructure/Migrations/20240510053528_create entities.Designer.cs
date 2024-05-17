@@ -13,7 +13,7 @@ namespace Compound_V.Infrastructure.Migrations
 {
     [DbContext(typeof(CompoundDbContext))]
     [Migration("20240510053528_create entities")]
-    partial class createentities
+    partial class Createentities
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

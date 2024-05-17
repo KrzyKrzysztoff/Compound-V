@@ -31,23 +31,41 @@ namespace Compound_V.Infrastructure.Seeders
 
                     await compoundDbContext.SaveChangesAsync();
                 }
-            }
 
-            if (!compoundDbContext.Users.Any())
-            {
-                var users = GetUsers();
-
-                if (users.Any())
+                if (!compoundDbContext.Users.Any())
                 {
-                    foreach (var user in users)
+                    var users = GetUsers();
+
+                    if (users.Any())
                     {
-                        await userManager.CreateAsync(user, "Test123#@!");
+                        foreach (var user in users)
+                        {
+                            await userManager.CreateAsync(user, "Test123#@!");
+                        }
                     }
                 }
-            }
-        }
 
-        public List<Log> GetLogs()
+                if (!compoundDbContext.Roles.Any())
+                {
+                    var roles = GetRoles();
+                    compoundDbContext.Roles.AddRange(roles);
+                    await compoundDbContext.SaveChangesAsync();
+                }
+            }
+
+        }
+        private IEnumerable<IdentityRole> GetRoles()
+        {
+            List<IdentityRole> roles = new()
+            {
+                new IdentityRole(){NormalizedName = "Admin", Name = "admin"},
+                new IdentityRole(){NormalizedName = "Owner", Name = "owner"},
+                new IdentityRole(){NormalizedName = "User",  Name =  "user"},
+            };
+
+            return roles;
+        }
+        private List<Log> GetLogs()
         {
             List<Log> logs = new List<Log>()
             {
@@ -59,7 +77,7 @@ namespace Compound_V.Infrastructure.Seeders
             return logs;
         }
 
-        public List<User> GetUsers()
+        private List<User> GetUsers()
         {
             var users = new List<User>()
             {
