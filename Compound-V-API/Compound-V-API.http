@@ -42,3 +42,21 @@ Content-Type: application/json
 {
     "Name": "Chef"
 }
+
+###
+DELETE {{Compound_V_API_HostAddress}}/api/identity/deleteRole
+Content-Type: application/json
+
+{
+    "Name": "Chef"
+}
+
+###
+
+PATCH {{Compound_V_API_HostAddress}}/api/identity/updateRole
+Content-Type: application/json
+
+{
+    "Id" : "3ca6b7fc-6217-49ed-9496-8b18d6d49b05",
+    "Name": "newOwner1"
+}

@@ -33,5 +33,13 @@ namespace Compound_V_API.Controllers
 
             return NoContent();
         }
+
+        [HttpPatch("updateRole")]
+        public async Task<IActionResult> UpdateRole([FromBody] UpdateRoleCommand command)
+        {
+            await mediator.Send<UpdateRoleCommand>(command);
+
+            return NoContent();
+        }
     }
 }
