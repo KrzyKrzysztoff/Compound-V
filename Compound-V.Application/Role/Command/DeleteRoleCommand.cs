@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compound_V.Application.User.Command
+namespace Compound_V.Application.Role.Command
 {
-    public class CreateRoleCommand :IRequest
+    public class DeleteRoleCommand : IRequest
     {
         public string Name { get; set; } = default!;
     }

@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compound_V.Application.User.Command
+namespace Compound_V.Application.Role.Command
 {
-    public class CreateRoleUserHandler(RoleManager<IdentityRole> roleManager) : IRequestHandler<CreateRoleCommand>
+    public class CreateRoleUserHandler(RoleManager<IdentityRole> roleManager) 
+        : IRequestHandler<CreateRoleCommand>
     {
         public async Task Handle(CreateRoleCommand request, CancellationToken cancellationToken)
         {

@@ -1,4 +1,5 @@
-﻿using Compound_V.Application.User.Command;
+﻿using Compound_V.Application.Role.Command;
+using Compound_V.Application.User.Command;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +24,14 @@ namespace Compound_V_API.Controllers
             await mediator.Send<CreateRoleCommand>(command);
 
             return Created();
+        }
+
+        [HttpDelete("deleteRole")]
+        public async Task<IActionResult> DeleteRole([FromBody] DeleteRoleCommand command)
+        {
+            await mediator.Send<DeleteRoleCommand>(command);
+
+            return NoContent();
         }
     }
 }
