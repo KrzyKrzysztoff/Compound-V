@@ -33,3 +33,12 @@ Content-Type: application/json
     "roleName": "Owner"
 }
 
+
+###
+
+POST {{Compound_V_API_HostAddress}}/api/identity/createRole
+Content-Type: application/json
+
+{
+    "Name": "Chef"
+}

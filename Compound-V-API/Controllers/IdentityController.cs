@@ -16,5 +16,13 @@ namespace Compound_V_API.Controllers
 
             return NoContent();
         }
+
+        [HttpPost("createRole")]
+        public async Task<IActionResult> CreateRole([FromBody] CreateRoleCommand command)
+        {
+            await mediator.Send<CreateRoleCommand>(command);
+
+            return Created();
+        }
     }
 }
