@@ -18,7 +18,23 @@ namespace Compound_V_API.Controllers
             return NoContent();
         }
 
-        [HttpPost("createRole")]
+        [HttpPost("createUser")]
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand command)
+        {
+            await mediator.Send(command);
+
+            return NoContent();
+        }
+
+        [HttpPost("unAssignUserRole")]
+        public async Task<IActionResult> UnAssignUserRole([FromBody] UnAssignUserRoleCommand command)
+        {
+            await mediator.Send(command);
+
+            return NoContent();
+        }
+
+        [HttpPost("role")]
         public async Task<IActionResult> CreateRole([FromBody] CreateRoleCommand command)
         {
             await mediator.Send<CreateRoleCommand>(command);
@@ -26,7 +42,7 @@ namespace Compound_V_API.Controllers
             return Created();
         }
 
-        [HttpDelete("deleteRole")]
+        [HttpDelete("role")]
         public async Task<IActionResult> DeleteRole([FromBody] DeleteRoleCommand command)
         {
             await mediator.Send<DeleteRoleCommand>(command);
@@ -34,10 +50,18 @@ namespace Compound_V_API.Controllers
             return NoContent();
         }
 
-        [HttpPatch("updateRole")]
+        [HttpPatch("role")]
         public async Task<IActionResult> UpdateRole([FromBody] UpdateRoleCommand command)
         {
             await mediator.Send<UpdateRoleCommand>(command);
+
+            return NoContent();
+        }
+
+        [HttpDelete("user")]
+        public async Task<IActionResult> deleteUser([FromBody] DeleteUserCommand command)
+        {
+            await mediator.Send<DeleteUserCommand>(command);
 
             return NoContent();
         }

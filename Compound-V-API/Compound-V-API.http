@@ -36,6 +36,16 @@ Content-Type: application/json
 
 ###
 
+POST {{Compound_V_API_HostAddress}}/api/identity/UnAssignUserRole
+Content-Type: application/json
+
+{
+    "userEmail": "test@test.com",
+    "roleName": "newOwner1"
+}
+
+###
+
 POST {{Compound_V_API_HostAddress}}/api/identity/createRole
 Content-Type: application/json
 
@@ -60,3 +70,16 @@ Content-Type: application/json
     "Id" : "3ca6b7fc-6217-49ed-9496-8b18d6d49b05",
     "Name": "newOwner1"
 }
+
+###
+
+POST {{Compound_V_API_HostAddress}}/api/identity/createUser
+Content-Type: application/json
+
+{
+    "Email": "test5@test.com",
+    "Name" : "test5",
+    "password" : "test5123!@#S"
+
+}
+  
