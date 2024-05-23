@@ -83,3 +83,6 @@ Content-Type: application/json
 
 }
   
+###
+
+GET {{Compound_V_API_HostAddress}}/api/identity/role/3ca6b7fc-6217-49ed-9496-8b18d6d49b05

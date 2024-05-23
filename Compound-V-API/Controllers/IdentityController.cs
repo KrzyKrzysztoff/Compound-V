@@ -1,4 +1,5 @@
 ﻿using Compound_V.Application.Role.Command;
+using Compound_V.Application.Role.Queries;
 using Compound_V.Application.User.Command;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -72,6 +73,15 @@ namespace Compound_V_API.Controllers
             await mediator.Send<DeleteUserCommand>(command);
 
             return NoContent();
+        }
+
+
+        [HttpGet("role/{id}")]
+        public async Task<IActionResult> Role([FromRoute] string id)
+        {
+            var role = await mediator.Send(new GetRoleQuery(id));
+
+            return Ok(role);
         }
     }
 }
