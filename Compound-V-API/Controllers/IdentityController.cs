@@ -59,7 +59,7 @@ namespace Compound_V_API.Controllers
         }
 
         [HttpDelete("user")]
-        public async Task<IActionResult> deleteUser([FromBody] DeleteUserCommand command)
+        public async Task<IActionResult> DeleteUser([FromBody] DeleteUserCommand command)
         {
             await mediator.Send<DeleteUserCommand>(command);
 

@@ -77,9 +77,9 @@ POST {{Compound_V_API_HostAddress}}/api/identity/createUser
 Content-Type: application/json
 
 {
-    "Email": "test5@test.com",
-    "Name" : "test5",
-    "password" : "test5123!@#S"
+    "Email": "test123@test.com",
+    "Name" : "test15",
+    "password" : "test51s23!@#S"
 
 }
   
