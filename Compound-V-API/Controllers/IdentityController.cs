@@ -26,6 +26,14 @@ namespace Compound_V_API.Controllers
             return NoContent();
         }
 
+        [HttpPatch("updateUser")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
+        {
+            await mediator.Send(command);
+
+            return NoContent();
+        }
+
         [HttpPost("unAssignUserRole")]
         public async Task<IActionResult> UnAssignUserRole([FromBody] UnAssignUserRoleCommand command)
         {
