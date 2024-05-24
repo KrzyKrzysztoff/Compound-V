@@ -100,5 +100,13 @@ namespace Compound_V_API.Controllers
 
             return Ok(role);
         }
+
+        [HttpGet("users")]
+        public async Task<IActionResult> Users()
+        {
+            var users = await mediator.Send(new GetUsersQuery());
+
+            return Ok(users);
+        }
     }
 }

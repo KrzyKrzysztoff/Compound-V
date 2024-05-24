@@ -95,3 +95,8 @@ GET {{Compound_V_API_HostAddress}}/api/identity/roles
 ###
 
 GET {{Compound_V_API_HostAddress}}/api/identity/user/55b81549-59cb-4e0b-a09c-cdcece5289c2
+
+
+###
+
+GET {{Compound_V_API_HostAddress}}/api/identity/users
