@@ -1,6 +1,7 @@
 ﻿using Compound_V.Application.Role.Command;
 using Compound_V.Application.Role.Queries;
 using Compound_V.Application.User.Command;
+using Compound_V.Application.User.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -90,6 +91,14 @@ namespace Compound_V_API.Controllers
             var roles = await mediator.Send(new GetRolesQuery());
 
             return Ok(roles);
+        }
+
+        [HttpGet("user/{id}")]
+        public async Task<IActionResult> User([FromRoute] string id)
+        {
+            var role = await mediator.Send(new GetUserQuery(id));
+
+            return Ok(role);
         }
     }
 }

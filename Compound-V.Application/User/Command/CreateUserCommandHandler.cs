@@ -26,7 +26,7 @@ namespace Compound_V.Application.User.Command
                 NormalizedUserName = request.Name.ToUpper(),
             };
 
-            // validate in future 
+            // validate in future, I can add mapper here from Command to User instead of lines upper
 
             await userManager.CreateAsync(newUser, request.Password);
             
