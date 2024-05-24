@@ -13,6 +13,8 @@ namespace Compound_V.Application.Extensions
         {
             var applicationAssembly = typeof(ServiceCollectionExtensions).Assembly;
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(applicationAssembly));
+
+            services.AddAutoMapper(applicationAssembly);
         }
     }
 }

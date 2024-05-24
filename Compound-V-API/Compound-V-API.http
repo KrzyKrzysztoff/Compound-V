@@ -77,9 +77,26 @@ POST {{Compound_V_API_HostAddress}}/api/identity/createUser
 Content-Type: application/json
 
 {
-    "Email": "test5@test.com",
-    "Name" : "test5",
-    "password" : "test5123!@#S"
+    "Email": "test123@test.com",
+    "Name" : "test15",
+    "password" : "test51s23!@#S"
 
 }
   
+###
+
+GET {{Compound_V_API_HostAddress}}/api/identity/role/3ca6b7fc-6217-49ed-9496-8b18d6d49b05
+
+
+###
+
+GET {{Compound_V_API_HostAddress}}/api/identity/roles
+
+###
+
+GET {{Compound_V_API_HostAddress}}/api/identity/user/55b81549-59cb-4e0b-a09c-cdcece5289c2
+
+
+###
+
+GET {{Compound_V_API_HostAddress}}/api/identity/users

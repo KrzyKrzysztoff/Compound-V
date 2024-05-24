@@ -1,5 +1,7 @@
 ﻿using Compound_V.Application.Role.Command;
+using Compound_V.Application.Role.Queries;
 using Compound_V.Application.User.Command;
+using Compound_V.Application.User.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +22,14 @@ namespace Compound_V_API.Controllers
 
         [HttpPost("createUser")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand command)
+        {
+            await mediator.Send(command);
+
+            return NoContent();
+        }
+
+        [HttpPatch("updateUser")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
         {
             await mediator.Send(command);
 
@@ -59,11 +69,44 @@ namespace Compound_V_API.Controllers
         }
 
         [HttpDelete("user")]
-        public async Task<IActionResult> deleteUser([FromBody] DeleteUserCommand command)
+        public async Task<IActionResult> DeleteUser([FromBody] DeleteUserCommand command)
         {
             await mediator.Send<DeleteUserCommand>(command);
 
             return NoContent();
+        }
+
+
+        [HttpGet("role/{id}")]
+        public async Task<IActionResult> Role([FromRoute] string id)
+        {
+            var role = await mediator.Send(new GetRoleQuery(id));
+
+            return Ok(role);
+        }
+
+        [HttpGet("roles")]
+        public async Task<IActionResult> Roles()
+        {
+            var roles = await mediator.Send(new GetRolesQuery());
+
+            return Ok(roles);
+        }
+
+        [HttpGet("user/{id}")]
+        public async Task<IActionResult> User([FromRoute] string id)
+        {
+            var role = await mediator.Send(new GetUserQuery(id));
+
+            return Ok(role);
+        }
+
+        [HttpGet("users")]
+        public async Task<IActionResult> Users()
+        {
+            var users = await mediator.Send(new GetUsersQuery());
+
+            return Ok(users);
         }
     }
 }
