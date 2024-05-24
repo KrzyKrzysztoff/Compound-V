@@ -83,5 +83,13 @@ namespace Compound_V_API.Controllers
 
             return Ok(role);
         }
+
+        [HttpGet("roles")]
+        public async Task<IActionResult> Roles()
+        {
+            var roles = await mediator.Send(new GetRolesQuery());
+
+            return Ok(roles);
+        }
     }
 }
