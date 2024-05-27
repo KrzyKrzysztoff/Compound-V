@@ -94,7 +94,7 @@ namespace Compound_V_API.Controllers
         }
 
         [HttpGet("user/{id}")]
-        public async Task<IActionResult> User([FromRoute] string id)
+        public async Task<IActionResult> GetUser([FromRoute] string id)
         {
             var role = await mediator.Send(new GetUserQuery(id));
 
@@ -102,7 +102,7 @@ namespace Compound_V_API.Controllers
         }
 
         [HttpGet("users")]
-        public async Task<IActionResult> Users()
+        public async Task<IActionResult> GetUsers()
         {
             var users = await mediator.Send(new GetUsersQuery());
 
