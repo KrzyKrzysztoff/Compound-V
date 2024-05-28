@@ -27,7 +27,7 @@ namespace Compound_V.Infrastructure.Extensions
               .AddRoles<IdentityRole>()
               .AddEntityFrameworkStores<CompoundDbContext>();
 
-            serviceCollection.AddScoped<ICompoundSeed,  CompoundSeed>();
+            serviceCollection.AddScoped<ICompoundSeed, CompoundSeed>();
         }
     }
 }
