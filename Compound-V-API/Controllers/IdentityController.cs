@@ -110,7 +110,7 @@ namespace Compound_V_API.Controllers
             return Ok(users);
         }
 
-        [HttpPost("register1")]
+        [HttpPost("RegisterUser")]
         public async Task<IActionResult> Register([FromBody] CreateUserCommand command)
         {
             var user = await mediator.Send(command);
