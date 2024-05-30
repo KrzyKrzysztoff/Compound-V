@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using Compound_V.Application.Dtos;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -8,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Application.User.Command
 {
-    public class CreateUserCommandHandler(UserManager<Domain.Entities.User> userManager)
-        : IRequestHandler<CreateUserCommand>
+    public class CreateUserCommandHandler(UserManager<Domain.Entities.User> userManager,
+        IMapper mapper)
+        : IRequestHandler<CreateUserCommand, UserDto>
     {
-        public async Task Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = await userManager.FindByEmailAsync(request.Email);
 
@@ -29,7 +32,10 @@ namespace Compound_V.Application.User.Command
             // validate in future, I can add mapper here from Command to User instead of lines upper
 
             await userManager.CreateAsync(newUser, request.Password);
-            
+
+            var userDto = mapper.Map<Domain.Entities.User, UserDto>(newUser);
+
+            return userDto;
         }
     }
 }

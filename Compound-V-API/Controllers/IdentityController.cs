@@ -2,6 +2,7 @@
 using Compound_V.Application.Role.Queries;
 using Compound_V.Application.User.Command;
 using Compound_V.Application.User.Query;
+using Compound_V.Infrastructure.Services.Token;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -107,6 +108,16 @@ namespace Compound_V_API.Controllers
             var users = await mediator.Send(new GetUsersQuery());
 
             return Ok(users);
+        }
+
+        [HttpPost("register1")]
+        public async Task<IActionResult> Register([FromBody] CreateUserCommand command)
+        {
+            var user = await mediator.Send(command);
+
+            var authDto = await mediator.Send(new GenerateTokenCommand(user));
+
+            return Ok(authDto);
         }
     }
 }
