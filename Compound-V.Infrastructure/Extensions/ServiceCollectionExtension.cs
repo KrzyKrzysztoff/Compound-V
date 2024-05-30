@@ -1,6 +1,8 @@
 ﻿using Compound_V.Domain.Entities;
+using Compound_V.Domain.Interfaces;
 using Compound_V.Infrastructure.Persistence;
 using Compound_V.Infrastructure.Seeders;
+using Compound_V.Infrastructure.Services.Token;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,7 +29,8 @@ namespace Compound_V.Infrastructure.Extensions
               .AddRoles<IdentityRole>()
               .AddEntityFrameworkStores<CompoundDbContext>();
 
-            serviceCollection.AddScoped<ICompoundSeed,  CompoundSeed>();
+            serviceCollection.AddScoped<ICompoundSeed, CompoundSeed>();
+            serviceCollection.AddScoped<ITokenService, TokenService>();
         }
     }
 }

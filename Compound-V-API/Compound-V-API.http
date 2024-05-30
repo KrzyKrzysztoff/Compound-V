@@ -100,3 +100,15 @@ GET {{Compound_V_API_HostAddress}}/api/identity/user/55b81549-59cb-4e0b-a09c-cdc
 ###
 
 GET {{Compound_V_API_HostAddress}}/api/identity/users
+
+
+###
+POST {{Compound_V_API_HostAddress}}/api/identity/register1
+Content-Type: application/json
+
+{
+    "Email": "test53245@test.com",
+    "Name" : "test151",
+    "password" : "test51s23!@#S"
+
+}

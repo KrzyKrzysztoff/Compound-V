@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Application.User.Command
 {
-    public class CreateUserCommand : IRequest<UserDto>
+    public class GenerateTokenCommand(UserDto userDto) :IRequest<AuthDto>
     {
-        public string Name { get; set; } = default!;
-        public string Email { get; set; } = default!;
-        public string Password { get; set; } = default!;
+        public string UserId { get; set; } = userDto.Id;
+        public IEnumerable<string>? Roles { get; set; } = userDto.Roles;
     }
 }
