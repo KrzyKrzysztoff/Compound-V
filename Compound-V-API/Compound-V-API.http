@@ -1,4 +1,5 @@
 @Compound_V_API_HostAddress = http://localhost:5050
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyZmRhOGQyYi1hMjZlLTQ4MmUtODcwOS1lZDc5ZmUwNjVkZjkiLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTcyMTg4MTksImV4cCI6MTcxNzIyMjQxOSwiaWF0IjoxNzE3MjE4ODE5LCJpc3MiOiJ5b3VyX2lzc3VlciIsImF1ZCI6InlvdXJfYXVkaWVuY2UifQ.XgBTZTkMbREOgrzxABmIB36SnWjoDGlgqZLAf_xLUrg
 
 GET {{Compound_V_API_HostAddress}}/weatherforecast/
 Accept: application/json
@@ -103,12 +104,31 @@ GET {{Compound_V_API_HostAddress}}/api/identity/users
 
 
 ###
-POST {{Compound_V_API_HostAddress}}/api/identity/register1
+POST {{Compound_V_API_HostAddress}}/api/identity/RegisterUser
 Content-Type: application/json
 
 {
-    "Email": "test53245@test.com",
-    "Name" : "test151",
-    "password" : "test51s23!@#S"
+    "Email": "test532455@test.com",
+    "Name" : "test1512",
+    "password" : "test51s231!@#S"
 
+}
+
+###
+POST {{Compound_V_API_HostAddress}}/api/identity/LoginUser
+Content-Type: application/json
+
+{
+    "Email": "test532455@test.com",
+    "password" : "test51s231!@#S"
+
+}
+###
+POST {{Compound_V_API_HostAddress}}/api/identity/userRole
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "userEmail": "ttest532455@test.com",
+    "roleName": "admin"
 }

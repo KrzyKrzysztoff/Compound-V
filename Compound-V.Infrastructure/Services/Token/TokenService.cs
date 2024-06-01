@@ -25,11 +25,12 @@ namespace Compound_V.Infrastructure.Services.Token
             {
                 var claims = new List<Claim>
                 {
-                    new Claim("userId", userId)
+                    new Claim("userId", userId),
+                    new Claim(ClaimTypes.Role, "admin"),
                 };
 
-                if (roles != null)
-                    claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+                //if (roles != null)
+                //    claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
 
                 var tokenHandler = new JwtSecurityTokenHandler();
