@@ -2,9 +2,14 @@
 using Compound_V.Application.Role.Queries;
 using Compound_V.Application.User.Command;
 using Compound_V.Application.User.Query;
+using Compound_V.Domain.Entities;
+using Compound_V.Domain.Interfaces;
 using Compound_V.Infrastructure.Services.Token;
 using MediatR;
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Compound_V_API.Controllers
 {
@@ -13,7 +18,9 @@ namespace Compound_V_API.Controllers
     public class IdentityController(IMediator mediator)
         : ControllerBase
     {
+
         [HttpPost("userRole")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AssignUserRole([FromBody]AssignUserRoleCommand command)
         {
             await mediator.Send(command);
@@ -113,9 +120,19 @@ namespace Compound_V_API.Controllers
         [HttpPost("RegisterUser")]
         public async Task<IActionResult> Register([FromBody] CreateUserCommand command)
         {
-            var user = await mediator.Send(command);
+            var userDto = await mediator.Send(command);
 
-            var authDto = await mediator.Send(new GenerateTokenCommand(user));
+            var authDto = await mediator.Send(new GenerateTokenCommand(userDto));
+
+            return Ok(authDto);
+        }
+
+        [HttpPost("LoginUser")]
+        public async Task<IActionResult> Login([FromBody] VerifyUserCredentialsQuery query )
+        {
+            var userDto = await mediator.Send(query);
+
+            var authDto = await mediator.Send(new GenerateTokenCommand(userDto));
 
             return Ok(authDto);
         }
