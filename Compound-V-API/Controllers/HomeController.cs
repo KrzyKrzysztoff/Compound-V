@@ -6,6 +6,7 @@ namespace Compound_V_API.Controllers
     [Route("api/home")]
     public class HomeController : ControllerBase
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return Ok();

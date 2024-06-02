@@ -1,5 +1,5 @@
 @Compound_V_API_HostAddress = http://localhost:5050
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyZmRhOGQyYi1hMjZlLTQ4MmUtODcwOS1lZDc5ZmUwNjVkZjkiLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTcyMTg4MTksImV4cCI6MTcxNzIyMjQxOSwiaWF0IjoxNzE3MjE4ODE5LCJpc3MiOiJ5b3VyX2lzc3VlciIsImF1ZCI6InlvdXJfYXVkaWVuY2UifQ.XgBTZTkMbREOgrzxABmIB36SnWjoDGlgqZLAf_xLUrg
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyZmRhOGQyYi1hMjZlLTQ4MmUtODcwOS1lZDc5ZmUwNjVkZjkiLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTczMDg5NDUsImV4cCI6MTcxNzMxMjU0NSwiaWF0IjoxNzE3MzA4OTQ1LCJpc3MiOiJ5b3VyX2lzc3VlciIsImF1ZCI6InlvdXJfYXVkaWVuY2UifQ.-qokfm40uc3FAVXKW8umlEfkR_k1ac2PhgJB1Jn8d1I
 
 GET {{Compound_V_API_HostAddress}}/weatherforecast/
 Accept: application/json
@@ -125,10 +125,15 @@ Content-Type: application/json
 }
 ###
 POST {{Compound_V_API_HostAddress}}/api/identity/userRole
-Authorization: Bearer {{token}}
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
     "userEmail": "ttest532455@test.com",
     "roleName": "admin"
 }
+
+
+###
+GET {{Compound_V_API_HostAddress}}/api/identity/roles
+Authorization: Bearer {{token}}

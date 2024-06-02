@@ -9,6 +9,7 @@ namespace Compound_V.Application.Extensions
         public static void AddApplication(this IServiceCollection services)
         {
             var applicationAssembly = typeof(ServiceCollectionExtensions).Assembly;
+
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(applicationAssembly));
             services.AddHttpContextAccessor();
 

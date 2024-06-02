@@ -20,7 +20,7 @@ namespace Compound_V_API.Controllers
     {
 
         [HttpPost("userRole")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> AssignUserRole([FromBody]AssignUserRoleCommand command)
         {
             await mediator.Send(command);
@@ -96,6 +96,7 @@ namespace Compound_V_API.Controllers
         [HttpGet("roles")]
         public async Task<IActionResult> Roles()
         {
+            var asd = User;
             var roles = await mediator.Send(new GetRolesQuery());
 
             return Ok(roles);
