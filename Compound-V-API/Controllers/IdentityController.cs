@@ -131,6 +131,8 @@ namespace Compound_V_API.Controllers
         [HttpPost("LoginUser")]
         public async Task<IActionResult> Login([FromBody] VerifyUserCredentialsQuery query )
         {
+            Serilog.Log.Information("This is log from Login");
+
             var userDto = await mediator.Send(query);
 
             var authDto = await mediator.Send(new GenerateTokenCommand(userDto));
