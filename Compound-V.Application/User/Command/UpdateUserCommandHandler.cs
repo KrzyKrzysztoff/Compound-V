@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Compound_V.Domain.Exceptions;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Compound_V.Application.User.Command
         public async Task Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             var user = await userManager.FindByEmailAsync(request.Email)
-                ?? throw new Exception("user doesn't exist");
+                ?? throw new NotFoundException("User", nameof(userManager.FindByEmailAsync), request.Email);
 
             user.UserName = request.UserName;
             user.NormalizedUserName = request.UserName.ToUpper();
