@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Compound_V.Domain.Exceptions;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Compound_V.Application.Role.Command
 
             if (role != null)
             {
-                throw new Exception("role already exist");
+                throw new ResourceAlreadyExistsException("Role", nameof(roleManager.FindByNameAsync), request.Name);
             }
 
             IdentityRole identityRole = new()

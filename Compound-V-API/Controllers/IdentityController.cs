@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Compound_V.Domain.Exceptions;
 
 namespace Compound_V_API.Controllers
 {
@@ -136,7 +137,6 @@ namespace Compound_V_API.Controllers
             var userDto = await mediator.Send(query);
 
             var authDto = await mediator.Send(new GenerateTokenCommand(userDto));
-
             return Ok(authDto);
         }
     }
