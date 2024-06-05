@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using Serilog;
+using Compound_V_API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,7 +69,11 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddExceptionHandler<ExceptionHandler>();
+
 var app = builder.Build();
+
+app.UseExceptionHandler();
 
 var scope = app.Services.CreateScope();
 
