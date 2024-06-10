@@ -17,5 +17,7 @@ namespace Compound_V.Domain.Entities
         public User Authors { get; set; } = new User();
         public User Clients { get; set; } = new User();
         public User Dentists { get; set; } = new User();
+
+        public Payment Payments { get; set; } = new Payment();
     }
 }

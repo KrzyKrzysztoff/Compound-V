@@ -22,11 +22,46 @@ namespace Compound_V.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Compound_V.Domain.Entities.Address", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FlatNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HouseNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Addresses");
+                });
+
             modelBuilder.Entity("Compound_V.Domain.Entities.File", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -39,9 +74,32 @@ namespace Compound_V.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("ToothId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("ToothId");
+
                     b.ToTable("Files");
+                });
+
+            modelBuilder.Entity("Compound_V.Domain.Entities.GenderType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GendersType");
                 });
 
             modelBuilder.Entity("Compound_V.Domain.Entities.Log", b =>
@@ -64,16 +122,62 @@ namespace Compound_V.Infrastructure.Migrations
                     b.ToTable("Logs");
                 });
 
-            modelBuilder.Entity("Compound_V.Domain.Entities.Toothing", b =>
+            modelBuilder.Entity("Compound_V.Domain.Entities.Payment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<decimal>("AmountToPay")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPayed")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("PaymentsTypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaymentsTypeId");
+
+                    b.ToTable("Payments");
+                });
+
+            modelBuilder.Entity("Compound_V.Domain.Entities.PaymentType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentsType");
+                });
+
+            modelBuilder.Entity("Compound_V.Domain.Entities.Teeth", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("FilesId")
+                    b.Property<Guid>("ToothTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UsersId")
@@ -81,11 +185,29 @@ namespace Compound_V.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilesId");
+                    b.HasIndex("ToothTypeId");
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("Toothings");
+                    b.ToTable("Tooth");
+                });
+
+            modelBuilder.Entity("Compound_V.Domain.Entities.TeethType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ToothType");
                 });
 
             modelBuilder.Entity("Compound_V.Domain.Entities.User", b =>
@@ -96,9 +218,18 @@ namespace Compound_V.Infrastructure.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("AddressesId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -106,6 +237,9 @@ namespace Compound_V.Infrastructure.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<Guid?>("GendersTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -130,6 +264,9 @@ namespace Compound_V.Infrastructure.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("ProfilePhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -141,6 +278,10 @@ namespace Compound_V.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AddressesId");
+
+                    b.HasIndex("GendersTypeId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -180,6 +321,9 @@ namespace Compound_V.Infrastructure.Migrations
                     b.Property<bool>("IsConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<Guid>("PaymentsId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("VisitDate")
                         .HasColumnType("datetime2");
 
@@ -190,6 +334,8 @@ namespace Compound_V.Infrastructure.Migrations
                     b.HasIndex("ClientsId");
 
                     b.HasIndex("DentistsId");
+
+                    b.HasIndex("PaymentsId");
 
                     b.ToTable("Visits");
                 });
@@ -327,19 +473,58 @@ namespace Compound_V.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Compound_V.Domain.Entities.Toothing", b =>
+            modelBuilder.Entity("Compound_V.Domain.Entities.File", b =>
                 {
-                    b.HasOne("Compound_V.Domain.Entities.File", "Files")
+                    b.HasOne("Compound_V.Domain.Entities.Teeth", "Tooth")
                         .WithMany()
-                        .HasForeignKey("FilesId");
+                        .HasForeignKey("ToothId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tooth");
+                });
+
+            modelBuilder.Entity("Compound_V.Domain.Entities.Payment", b =>
+                {
+                    b.HasOne("Compound_V.Domain.Entities.PaymentType", "PaymentsType")
+                        .WithMany()
+                        .HasForeignKey("PaymentsTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PaymentsType");
+                });
+
+            modelBuilder.Entity("Compound_V.Domain.Entities.Teeth", b =>
+                {
+                    b.HasOne("Compound_V.Domain.Entities.Teeth", "ToothType")
+                        .WithMany()
+                        .HasForeignKey("ToothTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Compound_V.Domain.Entities.User", "Users")
                         .WithMany()
                         .HasForeignKey("UsersId");
 
-                    b.Navigation("Files");
+                    b.Navigation("ToothType");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Compound_V.Domain.Entities.User", b =>
+                {
+                    b.HasOne("Compound_V.Domain.Entities.Address", "Addresses")
+                        .WithMany()
+                        .HasForeignKey("AddressesId");
+
+                    b.HasOne("Compound_V.Domain.Entities.GenderType", "GendersType")
+                        .WithMany()
+                        .HasForeignKey("GendersTypeId");
+
+                    b.Navigation("Addresses");
+
+                    b.Navigation("GendersType");
                 });
 
             modelBuilder.Entity("Compound_V.Domain.Entities.Visit", b =>
@@ -362,11 +547,19 @@ namespace Compound_V.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Compound_V.Domain.Entities.Payment", "Payments")
+                        .WithMany()
+                        .HasForeignKey("PaymentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Authors");
 
                     b.Navigation("Clients");
 
                     b.Navigation("Dentists");
+
+                    b.Navigation("Payments");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
