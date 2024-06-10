@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Domain.Entities
 {
-    public class File
+    public class PaymentType
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = default!;
-        public string? Description { get; set; }
-        public string Path { get; set; } = default!;
         public DateTime CreateDate { get; set; }
-
-        public Teeth Tooth { get; set; } = new Teeth();
     }
 }
