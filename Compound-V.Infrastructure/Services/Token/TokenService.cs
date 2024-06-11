@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Compound_V.Application.User;
 using Compound_V.Domain.Interfaces;
-using Compound_V.Application.Dtos;
 
 namespace Compound_V.Infrastructure.Services.Token
 {
