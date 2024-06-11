@@ -1,4 +1,4 @@
-﻿using Compound_V.Application.Dtos;
+﻿using Compound_V.Application.Role.Dtos;
 using MediatR;
 using System;
 using System.Collections.Generic;

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Infrastructure.Persistence
 {
-    internal class CompoundDbContext(DbContextOptions<CompoundDbContext> options)
+    public class CompoundDbContext(DbContextOptions<CompoundDbContext> options)
         : IdentityDbContext<User>(options)
     {
         internal DbSet<Domain.Entities.File> Files { get; set; }

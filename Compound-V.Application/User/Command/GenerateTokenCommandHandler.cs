@@ -1,4 +1,4 @@
-﻿using Compound_V.Application.Dtos;
+﻿using Compound_V.Application.User.Dtos;
 using Compound_V.Domain.Interfaces;
 using MediatR;
 using System;

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Compound_V.Application.Dtos;
+using Compound_V.Application.User.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;

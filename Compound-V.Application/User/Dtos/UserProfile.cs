@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compound_V.Application.Dtos
+namespace Compound_V.Application.User.Dtos
 {
     public class UserProfile : Profile
     {
-        public UserProfile() 
+        public UserProfile()
         {
             CreateMap<Domain.Entities.User, UserDto>();
         }
