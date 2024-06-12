@@ -1,6 +1,7 @@
 ﻿using Compound_V.Domain.Entities;
 using Compound_V.Domain.Interfaces;
 using Compound_V.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,12 @@ namespace Compound_V.Infrastructure.Repositories
         public async Task CreateTeeth(Teeth teeth)
         {
             await dbContext.Tooth.AddAsync(teeth);
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteTeeth(Teeth teeth)
+        {
+            dbContext.Remove(teeth);
             await dbContext.SaveChangesAsync();
         }
     }
