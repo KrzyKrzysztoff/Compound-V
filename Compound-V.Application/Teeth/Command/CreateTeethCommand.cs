@@ -11,6 +11,6 @@ namespace Compound_V.Application.Teeth.Command
     {
         public string? Description { get; set; }
         public string UserId { get; set; } = default!;
-        public string TeethTypeId { get; set; } = default!;
+        public Guid ToothTypeId { get; set; } = default!;
     }
 }

@@ -12,7 +12,7 @@ namespace Compound_V.Domain.Entities
         public string? Description { get; set; }
         public DateTime CreateDate { get; set; }
 
-        public User Users { get; set; } = new User();
-        public Teeth ToothType { get; set; } = new Teeth();
+        public User Users { get; set; } = default!;
+        public TeethType ToothType { get; set; } = default!;
     }
 }
