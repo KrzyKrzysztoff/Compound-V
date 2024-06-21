@@ -14,7 +14,8 @@ namespace Compound_V.Application.Teeth.Command
     {
         public async Task Handle(DeleteTeethCommand request, CancellationToken cancellationToken)
         {
-            var teeth = await teethRepository.GetTeethById(request.TeethId) 
+
+            var teeth = await teethRepository.GetTeethById(request.TeethId)
                 ?? throw new NotFoundException("Teeth", "Guid", "Id");
 
             await teethRepository.DeleteTeeth(teeth);

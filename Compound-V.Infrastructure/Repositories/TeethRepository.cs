@@ -24,5 +24,11 @@ namespace Compound_V.Infrastructure.Repositories
             dbContext.Remove(teeth);
             await dbContext.SaveChangesAsync();
         }
+
+        public async Task<Teeth?> GetTeethById(Guid teethId)
+        {
+            var teeth = await dbContext.Tooth.FirstOrDefaultAsync(x=>x.Id == teethId);
+            return teeth;
+        }
     }
 }
