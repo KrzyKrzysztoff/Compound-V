@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compound_V.Application.Teeth.Command
+namespace Compound_V.Application.Teeth.Query
 {
-    public class CreateTeethCommand : IRequest
+    public class GetTeethTypeByIdQuery : IRequest<TeethTypeDto>
     {
-        public TeethDto TeethDto { get; set; } = default!;
+        public Guid TeethTypeId { get; set; }
     }
 }
