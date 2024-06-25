@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Application.Teeth.Command
 {
-    public class CreateTeethCommand : IRequest
+    public class CreateTeethTypeCommand : IRequest
     {
-        public TeethDto TeethDto { get; set; } = default!;
+        public TeethTypeDto TeethTypeDto { get; set; } = default!;
     }
 }

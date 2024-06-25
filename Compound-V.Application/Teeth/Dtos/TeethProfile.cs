@@ -15,7 +15,9 @@ namespace Compound_V.Application.Teeth.Dtos
         public TeethProfile()
         {
 
-            CreateMap<CreateTeethCommand, Domain.Entities.Teeth>();
+            CreateMap<TeethDto, Domain.Entities.Teeth>();
+
+            CreateMap<TeethTypeDto, TeethType>();
 
             //CreateMap<CreateTeethCommand, Domain.Entities.Teeth>()
             //    .ForMember(domain => domain.ToothType,
