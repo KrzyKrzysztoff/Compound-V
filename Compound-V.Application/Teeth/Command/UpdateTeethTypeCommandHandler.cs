@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Application.Teeth.Command
 {
-    public class UpdateTeethTypeCommandHandler(ITeethRepository teethRepository,
+    public class UpdateTeethTypeCommandHandler(ITeethTypeRepository teethTypeRepository,
         IMapper mapper)
         : IRequestHandler<UpdateTeethTypeCommand>
     {
@@ -17,7 +17,7 @@ namespace Compound_V.Application.Teeth.Command
         {
             var teethType = mapper.Map<Domain.Entities.TeethType>(request.TeethTypeDto);
 
-            await teethRepository.UpdateTeethType(teethType);
+            await teethTypeRepository.UpdateTeethType(teethType);
         }
     }
 }

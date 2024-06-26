@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Application.Teeth.Query
 {
-    public class GetTeethTypeByIdQueryHandler(ITeethRepository teethRepository,
+    public class GetTeethTypeByIdQueryHandler(ITeethTypeRepository teethTypeRepository,
         IMapper mapper)
         : IRequestHandler<GetTeethTypeByIdQuery, TeethTypeDto>
     {
         public async Task<TeethTypeDto> Handle(GetTeethTypeByIdQuery request, CancellationToken cancellationToken)
         {
-            var teethType = await teethRepository.GetTeethTypeById(request.TeethTypeId)
+            var teethType = await teethTypeRepository.GetTeethTypeById(request.TeethTypeId)
              ?? throw new NotFoundException("TeethType", "Guid", "ById");
 
             var teethTypeDto = mapper.Map<TeethTypeDto>(teethType);

@@ -33,6 +33,7 @@ namespace Compound_V.Infrastructure.Extensions
             serviceCollection.AddScoped<ICompoundSeed, CompoundSeed>();
             serviceCollection.AddScoped<ITokenService, TokenService>();
             serviceCollection.AddScoped<ITeethRepository, TeethRepository>();
+            serviceCollection.AddScoped<ITeethTypeRepository, TeethTypeRepository>();
         }
     }
 }
