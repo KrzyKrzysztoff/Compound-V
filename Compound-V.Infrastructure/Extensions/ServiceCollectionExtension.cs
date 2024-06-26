@@ -34,6 +34,7 @@ namespace Compound_V.Infrastructure.Extensions
             serviceCollection.AddScoped<ITokenService, TokenService>();
             serviceCollection.AddScoped<ITeethRepository, TeethRepository>();
             serviceCollection.AddScoped<ITeethTypeRepository, TeethTypeRepository>();
+            serviceCollection.AddScoped<ITeethFileRepository, TeethFileRepository>();
         }
     }
 }

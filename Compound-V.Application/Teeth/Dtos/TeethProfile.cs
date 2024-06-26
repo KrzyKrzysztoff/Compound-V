@@ -19,6 +19,8 @@ namespace Compound_V.Application.Teeth.Dtos
 
             CreateMap<TeethTypeDto, TeethType>();
 
+            CreateMap<TeethType, TeethTypeDto>();
+
             CreateMap<TeethFileDto, Domain.Entities.File>();
 
             //CreateMap<CreateTeethCommand, Domain.Entities.Teeth>()

@@ -10,6 +10,15 @@ namespace Compound_V.Application.Teeth.Query
 {
     public class GetTeethTypeByIdQuery : IRequest<TeethTypeDto>
     {
+        public GetTeethTypeByIdQuery(string teethTypeId)
+        {
+            if (!Guid.TryParse(teethTypeId, out Guid parsedGuid))
+            {
+                throw new ArgumentException("Cannot parse string teethTypeId to Guid");
+            }
+
+            TeethTypeId = parsedGuid;
+        }
         public Guid TeethTypeId { get; set; }
     }
 }

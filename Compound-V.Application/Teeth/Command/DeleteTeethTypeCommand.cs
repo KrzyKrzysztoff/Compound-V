@@ -9,6 +9,15 @@ namespace Compound_V.Application.Teeth.Command
 {
     public class DeleteTeethTypeCommand : IRequest
     {
+        public DeleteTeethTypeCommand(string teethTypeId = default!)
+        {
+            if (!Guid.TryParse(teethTypeId, out Guid parsedGuid))
+            {
+                throw new ArgumentException("Invalid GUID format", nameof(teethTypeId));
+            }
+
+            this.TeethTypeId = parsedGuid;
+        }
         public Guid TeethTypeId { get; set; }
     }
 }

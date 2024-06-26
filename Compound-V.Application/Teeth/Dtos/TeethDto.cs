@@ -8,5 +8,8 @@ namespace Compound_V.Application.Teeth.Dtos
 {
     public class TeethDto
     {
+        public string? Description { get; set; } 
+        public Guid UsersId { get; set; }
+        public Guid ToothTypeId { get; set; }
     }
 }
