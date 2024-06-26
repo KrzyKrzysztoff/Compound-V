@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Compound_V.Infrastructure.Repositories
 {
@@ -15,6 +16,7 @@ namespace Compound_V.Infrastructure.Repositories
     {
         public async Task UpdateTeethType(TeethType teethType)
         {
+            dbContext.Entry(teethType).State = EntityState.Modified;
             dbContext.ToothType.Update(teethType);
             await dbContext.SaveChangesAsync();
         }

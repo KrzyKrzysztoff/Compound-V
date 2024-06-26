@@ -8,7 +8,7 @@ namespace Compound_V.Application.Teeth.Dtos
 {
     public class TeethTypeDto
     {
+        public Guid Id { get; set; }
         public string Name { get; set; } = default!;
-        public DateTime CreateDate { get; set; }
     }
 }
