@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Application.Teeth.Command
 {
-    public class DeleteTeethTypeCommandHandler(ITeethRepository teethRepository)
+    public class DeleteTeethTypeCommandHandler(ITeethTypeRepository teethTypeRepository)
         : IRequestHandler<DeleteTeethTypeCommand>
     {
         public async Task Handle(DeleteTeethTypeCommand request, CancellationToken cancellationToken)
         {
-            var teethType = await teethRepository.GetTeethTypeById(request.TeethTypeId)
+            var teethType = await teethTypeRepository.GetTeethTypeById(request.TeethTypeId)
                 ?? throw new NotFoundException("TeethType", "Guid", "Id");
 
-            await teethRepository.DeleteTeethType(teethType);
+            await teethTypeRepository.DeleteTeethType(teethType);
         }
     }
 }

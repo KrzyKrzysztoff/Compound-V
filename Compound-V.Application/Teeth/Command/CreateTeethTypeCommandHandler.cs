@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace Compound_V.Application.Teeth.Command
 {
-    public class CreateTeethTypeCommandHandler(ITeethRepository teethRepository,
+    public class CreateTeethTypeCommandHandler(ITeethTypeRepository teethTypeRepository,
         IMapper mapper)
         : IRequestHandler<CreateTeethTypeCommand>
     {
         public async Task Handle(CreateTeethTypeCommand request, CancellationToken cancellationToken)
         {
-            var teethType = mapper.Map<Compound_V.Domain.Entities.TeethType>(request.TeethTypeDto);
-            await teethRepository.CreateTeethType(teethType);
+            var teethType = mapper.Map<Domain.Entities.TeethType>(request.TeethTypeDto);
+            await teethTypeRepository.CreateTeethType(teethType);
         }
     }
 }

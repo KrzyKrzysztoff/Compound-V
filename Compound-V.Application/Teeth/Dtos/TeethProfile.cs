@@ -19,6 +19,8 @@ namespace Compound_V.Application.Teeth.Dtos
 
             CreateMap<TeethTypeDto, TeethType>();
 
+            CreateMap<TeethFileDto, Domain.Entities.File>();
+
             //CreateMap<CreateTeethCommand, Domain.Entities.Teeth>()
             //    .ForMember(domain => domain.ToothType,
             //        command => command.MapFrom(src => new TeethType { Id = src.ToothTypeId }))

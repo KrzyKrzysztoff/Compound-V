@@ -26,14 +26,6 @@ namespace Compound_V_API.Controllers
             return Ok();
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteTeeth(DeleteTeethCommand deleteTeethCommand)
-        {
-            await mediator.Send(deleteTeethCommand);
-
-            return Ok();
-        }
-
         [HttpGet]
         public async Task<IActionResult> GetTeethById(GetTeethByIdQuery getTeethByIdQuery)
         {
@@ -75,9 +67,41 @@ namespace Compound_V_API.Controllers
         }
 
         [HttpPatch]
-        public async Task<IActionResult> UpdateTeeth(UpdateTeethCommand updateTeethCommand)
+        public async Task<IActionResult> UpdateTeethType(UpdateTeethTypeCommand updateTeethTypeCommand)
         {
-            await mediator.Send(updateTeethCommand);
+            await mediator.Send(updateTeethTypeCommand);
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateTeethFile(CreateTeethFileCommand createTeethFileCommand)
+        {
+            await mediator.Send(createTeethFileCommand);
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteTeethFile(DeleteTeethFileCommand deleteTeethFileCommand)
+        {
+            await mediator.Send(deleteTeethFileCommand);
+
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTeethFileById(GetTeethFileByIdQuery getTeethFileByIdQuery)
+        {
+            var teeth = await mediator.Send(getTeethFileByIdQuery);
+
+            return Ok(teeth);
+        }
+
+        [HttpPatch]
+        public async Task<IActionResult> UpdateTeethFile(UpdateTeethFileCommand updateTeethFileCommand)
+        {
+            await mediator.Send(updateTeethFileCommand);
 
             return Ok();
         }
