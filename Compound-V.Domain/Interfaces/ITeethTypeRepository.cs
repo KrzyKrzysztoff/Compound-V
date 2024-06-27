@@ -11,7 +11,6 @@ namespace Compound_V.Domain.Interfaces
     {
         Task CreateTeethType(TeethType teethType);
         Task DeleteTeethType(TeethType teethType);
-        Task UpdateTeethType(TeethType teethType);
         Task<TeethType?> GetTeethTypeById(Guid teethTypeId);
     }
 }

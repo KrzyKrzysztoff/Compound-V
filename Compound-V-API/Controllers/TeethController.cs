@@ -99,38 +99,6 @@ namespace Compound_V_API.Controllers
             return Ok(teeth);
         }
 
-        [HttpPatch]
-        public async Task<IActionResult> UpdateTeethType(UpdateTeethTypeCommand updateTeethTypeCommand)
-        {
-            await mediator.Send(updateTeethTypeCommand);
-
-            return Ok();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateTeethFile(CreateTeethFileCommand createTeethFileCommand)
-        {
-            await mediator.Send(createTeethFileCommand);
-
-            return Ok();
-        }
-
-        [HttpDelete]
-        public async Task<IActionResult> DeleteTeethFile(DeleteTeethFileCommand deleteTeethFileCommand)
-        {
-            await mediator.Send(deleteTeethFileCommand);
-
-            return Ok();
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetTeethFileById(GetTeethFileByIdQuery getTeethFileByIdQuery)
-        {
-            var teeth = await mediator.Send(getTeethFileByIdQuery);
-
-            return Ok(teeth);
-        }
-
         [HttpPatch("updateTeethFile")]
         public async Task<IActionResult> UpdateTeethFile(UpdateTeethFileCommand updateTeethFileCommand)
         {
