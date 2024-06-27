@@ -14,12 +14,6 @@ namespace Compound_V.Infrastructure.Repositories
     public class TeethTypeRepository(CompoundDbContext dbContext)
         : ITeethTypeRepository
     {
-        public async Task UpdateTeethType(TeethType teethType)
-        {
-            dbContext.Entry(teethType).State = EntityState.Modified;
-            dbContext.ToothType.Update(teethType);
-            await dbContext.SaveChangesAsync();
-        }
         public async Task<TeethType?> GetTeethTypeById(Guid teethTypeId)
         {
             var tooth = await dbContext.ToothType.FirstOrDefaultAsync(x => x.Id == teethTypeId);
