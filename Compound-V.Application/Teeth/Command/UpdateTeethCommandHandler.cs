@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Compound_V.Application.Teeth.Dtos;
+using Compound_V.Domain.Exceptions;
 using Compound_V.Domain.Interfaces;
 using MediatR;
 using System;
@@ -16,7 +17,10 @@ namespace Compound_V.Application.Teeth.Command
     {
         public async Task Handle(UpdateTeethCommand request, CancellationToken cancellationToken)
         {
-            var teeth = mapper.Map<Domain.Entities.Teeth>(request.TeethDto);
+            var teeth = await teethRepository.GetTeethById(request.TeethDto.Id)
+                ?? throw new NotFoundException("Teeth", "Guid", "ById");
+
+            teeth.ToothType = request.
 
             await teethRepository.UpdateTeeth(teeth);
         }
