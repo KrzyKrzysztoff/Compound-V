@@ -1,5 +1,4 @@
-﻿using Compound_V.Application.Role.Command;
-using Compound_V.Application.Role.Queries;
+﻿using Compound_V.Application.Role.Queries;
 using Compound_V.Application.User.Command;
 using Compound_V.Application.User.Query;
 using Compound_V.Domain.Entities;
@@ -11,6 +10,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Compound_V.Domain.Exceptions;
+using Compound_V.Application.Role.Command.Create;
+using Compound_V.Application.Role.Command.Delete;
+using Compound_V.Application.Role.Command.Update;
 
 namespace Compound_V_API.Controllers
 {
