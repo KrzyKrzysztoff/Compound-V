@@ -1,6 +1,7 @@
-﻿using Compound_V.Application.Teeth.Command;
+﻿using Compound_V.Application.Teeth.Command.Create;
+using Compound_V.Application.Teeth.Command.Delete;
+using Compound_V.Application.Teeth.Command.Update;
 using Compound_V.Application.Teeth.Query;
-using Compound_V.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,70 +40,6 @@ namespace Compound_V_API.Controllers
         public async Task<IActionResult> UpdateTeeth([FromBody] UpdateTeethCommand updateTeethCommand)
         {
             await mediator.Send(updateTeethCommand);
-
-            return Ok();
-        }
-
-        [HttpPost("createTeethType")]
-        public async Task<IActionResult> CreateTeethType([FromBody] CreateTeethTypeCommand createTeethTypeCommand)
-        {
-            await mediator.Send(createTeethTypeCommand);
-
-            return Ok();
-        }
-
-        [HttpDelete("deleteTeethType/{teethTypeId}")]
-        public async Task<IActionResult> DeleteTeethType([FromRoute] string teethTypeId)
-        {
-            await mediator.Send(new DeleteTeethTypeCommand(teethTypeId));
-
-            return Ok();
-        }
-
-        [HttpGet("getTeethTypeById/{teethTypeId}")]
-        public async Task<IActionResult> GetTeethTypeById([FromRoute] string teethTypeId)
-        {
-            var teeth = await mediator.Send(new GetTeethTypeByIdQuery(teethTypeId));
-
-            return Ok(teeth);
-        }
-
-        [HttpPatch("updateTeethType")]
-        public async Task<IActionResult> UpdateTeethType([FromBody] UpdateTeethTypeCommand updateTeethTypeCommand)
-        {
-            await mediator.Send(updateTeethTypeCommand);
-
-            return Ok();
-        }
-
-        [HttpPost("createTeethFile")]
-        public async Task<IActionResult> CreateTeethFile(CreateTeethFileCommand createTeethFileCommand)
-        {
-            await mediator.Send(createTeethFileCommand);
-
-            return Ok();
-        }
-
-        [HttpDelete("deleteTeethFile")]
-        public async Task<IActionResult> DeleteTeethFile(DeleteTeethFileCommand deleteTeethFileCommand)
-        {
-            await mediator.Send(deleteTeethFileCommand);
-
-            return Ok();
-        }
-
-        [HttpGet("getTeethFileById")]
-        public async Task<IActionResult> GetTeethFileById(GetTeethFileByIdQuery getTeethFileByIdQuery)
-        {
-            var teeth = await mediator.Send(getTeethFileByIdQuery);
-
-            return Ok(teeth);
-        }
-
-        [HttpPatch("updateTeethFile")]
-        public async Task<IActionResult> UpdateTeethFile(UpdateTeethFileCommand updateTeethFileCommand)
-        {
-            await mediator.Send(updateTeethFileCommand);
 
             return Ok();
         }
