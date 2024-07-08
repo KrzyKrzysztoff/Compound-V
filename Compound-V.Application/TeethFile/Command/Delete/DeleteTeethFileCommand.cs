@@ -9,6 +9,15 @@ namespace Compound_V.Application.TeethFile.Command.Delete
 {
     public class DeleteTeethFileCommand : IRequest
     {
+        public DeleteTeethFileCommand(string teethFileTypeId)
+        {
+            if (!Guid.TryParse(teethFileTypeId, out Guid parsedGuid))
+            {
+                throw new ArgumentException("Cannot parse string teethTypeId to Guid");
+            }
+
+            TeethFileId = parsedGuid;
+        }
         public Guid TeethFileId { get; set; }
     }
 }
