@@ -30,10 +30,5 @@ namespace Compound_V.Infrastructure.Repositories
             return teethFile;
         }
 
-        public async Task UpdateTeethFile(Domain.Entities.File teethFile)
-        {
-            dbContext.Files.Update(teethFile);
-            await dbContext.SaveChangesAsync();
-        }
     }
 }

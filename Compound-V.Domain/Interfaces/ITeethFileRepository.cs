@@ -11,7 +11,6 @@ namespace Compound_V.Domain.Interfaces
     {
         Task CreateTeethFile(Entities.File teethFile);
         Task DeleteTeethFile(Entities.File teethFile);
-        Task UpdateTeethFile(Entities.File teethFile);
         Task<Entities.File?> GetTeethFileById(Guid teethFileId);
     }
 }
