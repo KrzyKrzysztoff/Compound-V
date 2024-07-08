@@ -284,7 +284,7 @@ namespace Compound_V.Infrastructure.Migrations
                     table.ForeignKey(
                         name: "FK_Tooth_Tooth_ToothTypeId",
                         column: x => x.ToothTypeId,
-                        principalTable: "Tooth",
+                        principalTable: "ToothType",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
