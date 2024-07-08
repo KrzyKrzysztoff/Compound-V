@@ -23,12 +23,12 @@ namespace Compound_V.Application.Teeth.Dtos
 
             CreateMap<TeethFileDto, Domain.Entities.File>();
 
-            //CreateMap<CreateTeethCommand, Domain.Entities.Teeth>()
+            //CreateMap<TeethDto, Domain.Entities.Teeth>()
             //    .ForMember(domain => domain.ToothType,
             //        command => command.MapFrom(src => new TeethType { Id = src.ToothTypeId }))
             //    .ForMember(domain => domain.Users,
-            //        command => command.MapFrom(src => new Domain.Entities.User { Id = src.UserId }));
-           
+            //        command => command.MapFrom(src => new Domain.Entities.User { Id = src.UsersId }));
+
             //CreateMap<Domain.Entities.Teeth, CreateTeethCommand>()
             //    .ForMember(domain => domain.ToothTypeId,
             //        command => command.MapFrom(src => src.ToothType.Id))

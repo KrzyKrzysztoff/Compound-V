@@ -29,11 +29,5 @@ namespace Compound_V.Infrastructure.Repositories
             var teeth = await dbContext.Tooth.FirstOrDefaultAsync(x=>x.Id == teethId);
             return teeth;
         }
-
-        public async Task UpdateTeeth(Teeth teeth)
-        {
-            dbContext.Tooth.Update(teeth);
-            await dbContext.SaveChangesAsync();
-        }
     }
 }
