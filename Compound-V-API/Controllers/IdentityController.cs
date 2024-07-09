@@ -13,6 +13,7 @@ using Compound_V.Domain.Exceptions;
 using Compound_V.Application.Role.Command.Create;
 using Compound_V.Application.Role.Command.Delete;
 using Compound_V.Application.Role.Command.Update;
+using Compound_V.Application.User.Command.Create;
 
 namespace Compound_V_API.Controllers
 {

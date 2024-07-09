@@ -1,4 +1,4 @@
-﻿using Compound_V.Application.User.Command;
+﻿using Compound_V.Application.User.Command.Update;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
