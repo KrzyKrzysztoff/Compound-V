@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compound_V.Application.User.Command
+namespace Compound_V.Application.User.Command.Update
 {
     public class UpdateUserCommand : IRequest
     {
