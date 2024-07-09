@@ -14,6 +14,7 @@ using Compound_V.Application.Role.Command.Create;
 using Compound_V.Application.Role.Command.Delete;
 using Compound_V.Application.Role.Command.Update;
 using Compound_V.Application.User.Command.Create;
+using Compound_V.Application.User.Command.Update;
 
 namespace Compound_V_API.Controllers
 {
